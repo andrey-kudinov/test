@@ -4,9 +4,7 @@ import cl from "classnames";
 import { id } from "date-fns/locale";
 import { FaYoutube, FaGithub, FaTelegram } from "react-icons/fa";
 
-<FaYoutube />;
-<FaGithub />;
-<FaTelegram />;
+import ScreenEgg from "../ScreenEgg";
 
 const socialNetworks = [
   {
@@ -28,22 +26,24 @@ const socialNetworks = [
 
 const SocialNetworks = ({ className }) => {
   return (
-    <ul className={cl(className, styles.list)}>
-      {socialNetworks.map((socialNetworks) => (
-        <li key={socialNetworks.id} className={styles.listItem}>
-          <a
-            href={socialNetworks.href}
-            target="_blank"
-            className={styles.listLink}
-          >
-            {React.createElement(socialNetworks.icon, {
-              color: "black",
-              size: 50,
-            })}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <ScreenEgg>
+      <ul className={cl(className, styles.list)}>
+        {socialNetworks.map((socialNetworks) => (
+          <li key={socialNetworks.id} className={styles.listItem}>
+            <a
+              href={socialNetworks.href}
+              target="_blank"
+              className={styles.listLink}
+            >
+              {React.createElement(socialNetworks.icon, {
+                color: "black",
+                size: 50,
+              })}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </ScreenEgg>
   );
 };
 
