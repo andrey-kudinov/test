@@ -6,7 +6,12 @@ const BuyMeCoffee = ({ className }) => {
   return (
     <ScreenEgg type="right">
       <div className={cl(styles.buyCoffee, className)}>
-        <a href="#" target="_blank" className={styles.buyCoffeeButton}>
+        <a
+          href="#"
+          target="_blank"
+          className={styles.buyCoffeeButton}
+          rel="noreferrer"
+        >
           Купи мне кофе
         </a>
       </div>

@@ -34,6 +34,7 @@ const SocialNetworks = ({ className }) => {
               href={socialNetworks.href}
               target="_blank"
               className={styles.listLink}
+              rel="noreferrer"
             >
               {React.createElement(socialNetworks.icon, {
                 color: "black",
