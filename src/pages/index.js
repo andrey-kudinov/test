@@ -29,6 +29,7 @@ export default function Home({ initialPosts, total }) {
       const data = await fetch(
         `/api/post?start=${loadedAmount}&end=${loadedAmount + LOAD_MORE_STEP}`
       ).then((response) => response.json());
+      console.log(response);
       setLoadedAmount(loadedAmount + LOAD_MORE_STEP);
       setPosts([...posts, ...data.posts]);
       setLoading(false);
