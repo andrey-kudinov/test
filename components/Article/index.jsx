@@ -8,10 +8,10 @@ import styles from "./index.module.scss";
 const Article = ({ children, backUrl, className }) => {
   return (
     <article className={cl(className, styles.article)}>
-      <Link href={backUrl}>
-        <a className={styles.articleBack}>
-          <AiOutlineArrowLeft />
-        </a>
+      <Link href={backUrl} className={styles.articleBack}>
+
+        <AiOutlineArrowLeft />
+
       </Link>
       <div className={styles.articleContent}>{children}</div>
     </article>
