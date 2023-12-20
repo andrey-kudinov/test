@@ -17,34 +17,34 @@ import {
 
 const LOAD_MORE_STEP = 4;
 
-export default function Home({ initialPosts, total }) {
-  const [posts, setPosts] = useState(initialPosts);
-  const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
-  const [loading, setLoading] = useState(false);
+export default function Home() {
+  // const [posts, setPosts] = useState(initialPosts);
+  // const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
+  // const [loading, setLoading] = useState(false);
 
-  const showLoadButton = total > loadedAmount;
+  // const showLoadButton = total > loadedAmount;
 
-  const getMorePosts = async () => {
-    setLoading(true);
+  // const getMorePosts = async () => {
+  //   setLoading(true);
 
-    try {
-      const params = new URLSearchParams({
-        start: loadedAmount,
-        end: loadedAmount + LOAD_MORE_STEP,
-      });
+  //   try {
+  //     const params = new URLSearchParams({
+  //       start: loadedAmount,
+  //       end: loadedAmount + LOAD_MORE_STEP,
+  //     });
 
-      const url = `/api/posts?${params.toString()}`;
+  //     const url = `/api/posts?${params.toString()}`;
 
-      const data = await fetch(url).then((response) => response.json());
+  //     const data = await fetch(url).then((response) => response.json());
 
-      setLoadedAmount(loadedAmount + LOAD_MORE_STEP);
-      setPosts([...posts, ...data.posts]);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+  //     setLoadedAmount(loadedAmount + LOAD_MORE_STEP);
+  //     setPosts([...posts, ...data.posts]);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div
@@ -85,13 +85,13 @@ export default function Home({ initialPosts, total }) {
   );
 }
 
-export async function getServerSideProps() {
-  const { posts, total } = await loadData(0, LOAD_MORE_STEP);
+// export async function getServerSideProps() {
+//   const { posts, total } = await loadData(0, LOAD_MORE_STEP);
 
-  return {
-    props: {
-      initialPosts: posts,
-      total,
-    },
-  };
-}
+//   return {
+//     props: {
+//       initialPosts: posts,
+//       total,
+//     },
+//   };
+// }
