@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import Head from "next/head";
 
@@ -17,7 +15,7 @@ import {
 
 const LOAD_MORE_STEP = 4;
 
-export default function Home() {
+export default function Home({ initialPosts, total }) {
   // const [posts, setPosts] = useState(initialPosts);
   // const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   // const [loading, setLoading] = useState(false);
@@ -55,7 +53,7 @@ export default function Home() {
       <Head>
         <title>My blog</title>
       </Head>
-      <h1>Hello World</h1>
+      <h1>Hello World !{initialPosts}, {total}!</h1>
       {/* <Section>
         <Cover title="Andrei<br /> Zakroev" />
         <SocialNetworks />
@@ -85,13 +83,14 @@ export default function Home() {
   );
 }
 
-// export async function getServerSideProps() {
-//   const { posts, total } = await loadData(0, LOAD_MORE_STEP);
+export async function getServerSideProps() {
+  // const { posts, total } = await loadData(0, LOAD_MORE_STEP);
 
-//   return {
-//     props: {
-//       initialPosts: posts,
-//       total,
-//     },
-//   };
-// }
+  return {
+    props: {
+      initialPosts: 'initialPosts',
+      total: 123,
+    },
+  };
+}
+
