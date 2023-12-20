@@ -55,7 +55,8 @@ export default function Home({ initialPosts, total }) {
       <Head>
         <title>My blog</title>
       </Head>
-      <Section>
+      <h1>Hello World</h1>
+      {/* <Section>
         <Cover title="Andrei<br /> Zakroev" />
         <SocialNetworks />
         <BuyMeCoffee />
@@ -79,7 +80,7 @@ export default function Home({ initialPosts, total }) {
             </Button>
           </div>
         )}
-      </Section>
+      </Section> */}
     </div>
   );
 }
