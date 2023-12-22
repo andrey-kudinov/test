@@ -1,7 +1,17 @@
+const textEditorStyles = [
+  {title: 'Paragraph', value: 'normal'},
+  {title: 'Heading 1', value: 'h1'},
+  {title: 'Heading 2', value: 'h2'},
+  {title: 'Heading 3', value: 'h3'},
+  {title: 'Bullet', value: 'bullet'},
+  {title: 'Numbered', value: 'number'},
+  {title: 'Quote', value: 'blockquote'},
+]
+
 export default {
   name: 'post',
   type: 'document',
-  title: 'Post 1',
+  title: 'Post',
   groups: [
     {
       name: 'content',
@@ -14,41 +24,46 @@ export default {
   ],
   fields: [
     {
+      group: 'meta',
       name: 'meta_title',
       type: 'string',
       title: 'Meta title',
       validation: (Rule) => Rule.required(),
-      group: 'meta',
     },
     {
+      group: 'content',
       name: 'title',
       type: 'string',
       title: 'Title',
       validation: (Rule) => Rule.required(),
-      group: 'content',
     },
     {
+      group: 'content',
       name: 'publishedDate',
       type: 'date',
       title: 'Published Date',
-      group: 'content',
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
       group: 'content',
+      name: 'image',
+      type: 'image',
+      title: 'Image',
+      validation: (Rule) => Rule.required(),
+      options: {
+        hotspot: true,
+      },
       fields: [
         {
           name: 'caption',
           type: 'string',
           title: 'Caption',
           options: {
-            isHighlighter: true,
+            isHighlighted: true, // <-- make this field easily accessible
           },
         },
         {
+          // Editing this field will be hidden behind an "Edit"-button
           name: 'attribution',
           type: 'string',
           title: 'Attribution',
@@ -56,9 +71,9 @@ export default {
       ],
     },
     {
+      group: 'content',
       title: 'Slug',
       name: 'slug',
-      group: 'content',
       type: 'slug',
       validation: (Rule) => Rule.required(),
       options: {
@@ -68,21 +83,22 @@ export default {
       },
     },
     {
-      title: 'Description',
-      name: 'description',
       group: 'content',
+      name: 'description',
       type: 'text',
+      title: 'Description',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'body',
-      title: 'Body content',
-      type: 'array',
       group: 'content',
+      title: 'Body content',
+      name: 'body',
+      type: 'array',
       validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'block',
+          styles: textEditorStyles,
         },
         {
           type: 'image',

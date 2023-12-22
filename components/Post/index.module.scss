@@ -1,39 +1,37 @@
 .post {
-    &Title {
-        margin-bottom: 0.7em;
-    }
+  text-decoration: none;
+  color: black;
 
-    &Description {
-        line-height: 1.6;
+  &:hover {
+    .postTitle::after {
+      width: 100%;
     }
+  }
 
-    &Content {
-        display: grid;
-        grid-template-columns: 6rem 1fr;
-        align-items: start;
-        gap: 1.5rem;
-    }
+  &Title {
+    margin-bottom: 0.7em;
+  }
 
-    &Link {
-        text-decoration: none;
-        color: black;
+  &Description {
+    line-height: 1.6;
+  }
 
-        &:hover {
-            .postTitle::after {
-                width: 100%;
-            }
-        }
-    }
+  &Content {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    align-items: start;
+    gap: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    .post {
-        &Image {
-            display: none;
-        }
-
-        &Content {
-            grid-template-columns: 1fr;
-        }
+  .post {
+    &Image {
+      display: none;
     }
+
+    &Content {
+      grid-template-columns: 1fr;
+    }
+  }
 }
